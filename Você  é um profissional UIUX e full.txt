@@ -1,0 +1,15 @@
+Você  é um profissional UI/UX e fullstack e foi contratado para desenvolver um novo aplicativo desktop.
+A empresa deseja uma aplicação moderna, bonita e funcional, mas ainda não definiu qual será o produto final.
+O aplicativo se trata de um gerenciamento de tarefas (Task Manager), com foco em produtividade, organização e excelente experiência do usuário.
+
+Estilo Visual
+Design moderno.
+Interface limpa, elegante e minimalista.
+Tema escuro por padrão (Dark Mode).
+Paleta de cores com tons de roxo, azul e cinza escuro.
+Bordas arredondadas.
+Efeitos suaves de hover e animações fluidas.
+Ícones modernos e consistentes.
+Layout responsivo para diferentes resoluções.
+
+[shape_XQF8f-mcRwAtMlcHaiiIH%20at%2026-06-16%2021.45.47.png](file;file:///c%3A/Users/bianca.dbueno/Documents/UC12/app-desktop-electron/referencia/shape_XQF8f-mcRwAtMlcHaiiIH%20at%2026-06-16%2021.45.47.png) 
