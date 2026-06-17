@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - Onbo</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons Local Script (Corrigindo o erro de CSP) -->
+    <script src="node_modules/lucide/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+    <!-- Custom Title Bar -->
+    <div class="titlebar">
+        <div class="titlebar-drag-region"></div>
+        <div class="titlebar-controls">
+            <button id="btn-minimize" class="titlebar-btn"><i data-lucide="minus"></i></button>
+            <button id="btn-maximize" class="titlebar-btn"><i data-lucide="square"></i></button>
+            <button id="btn-close" class="titlebar-btn close-btn"><i data-lucide="x"></i></button>
+        </div>
+    </div>
+
+    <!-- App Container -->
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i data-lucide="hexagon" class="logo-icon"></i>
+                <h2>ONBO</h2>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#"><i data-lucide="layout-grid"></i> Dashboard</a></li>
+                    <li class="active"><a href="#"><i data-lucide="list-todo"></i> My tasks</a></li>
+                    <li><a href="#"><i data-lucide="bell"></i> Notification</a></li>
+                    <li><a href="#"><i data-lucide="layers"></i> Projects</a></li>
+                    <li><a href="#"><i data-lucide="users"></i> Team</a></li>
+                    <li><a href="#"><i data-lucide="bar-chart-2"></i> Analytics</a></li>
+                </ul>
+            </nav>
+
+            <nav class="sidebar-nav sidebar-bottom">
+                <ul>
+                    <li><a href="#"><i data-lucide="settings"></i> Settings</a></li>
+                    <li><a href="#"><i data-lucide="help-circle"></i> Support</a></li>
+                </ul>
+                
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Anna+James&background=333&color=fff" alt="User Avatar" class="avatar">
+                    <div class="user-info">
+                        <span class="user-name">Anna James</span>
+                        <span class="user-email">annajames31@gmail.com</span>
+                    </div>
+                    <i data-lucide="chevron-down" class="chevron"></i>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <h1>Task Manager</h1>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i data-lucide="search"></i>
+                        <input type="text" placeholder="Search">
+                    </div>
+                    <button class="btn-primary">Add <i data-lucide="plus"></i></button>
+                    <button class="btn-secondary">Invite <i data-lucide="send"></i></button>
+                </div>
+            </header>
+
+            <nav class="tabs">
+                <a href="#" class="active">Overview</a>
+                <a href="#">List</a>
+                <a href="#">Board</a>
+                <a href="#">Timeline</a>
+                <a href="#">Files</a>
+            </nav>
+
+            <div class="content-scroll">
+                <div class="overview-section">
+                    <h2>Task Overview (68+)</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span>Total Tasks</span>
+                                <i data-lucide="more-vertical"></i>
+                            </div>
+                            <h3>18 Tasks</h3>
+                            <p class="stat-desc">All active tasks across your projects</p>
+                            <div class="stat-footer"><i data-lucide="trending-up"></i> +5% from last week</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span>Completed</span>
+                                <i data-lucide="more-vertical"></i>
+                            </div>
+                            <h3>7 Tasks</h3>
+                            <p class="stat-desc">Successfully finished and approved</p>
+                            <div class="stat-footer"><i data-lucide="check-square"></i> +2 since last week</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span>In Progress</span>
+                                <i data-lucide="more-vertical"></i>
+                            </div>
+                            <h3>6 Tasks</h3>
+                            <p class="stat-desc">Tasks currently being worked on</p>
+                            <div class="stat-footer"><i data-lucide="minus"></i> No change from last week</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span>Pending Review</span>
+                                <i data-lucide="more-vertical"></i>
+                            </div>
+                            <h3>2 Tasks</h3>
+                            <p class="stat-desc">Waiting for feedback or approval</p>
+                            <div class="stat-footer"><i data-lucide="clock"></i> -1 since last week</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bottom-layout">
+                    <!-- Task List Table -->
+                    <div class="tasks-table-card">
+                        <div class="table-header">
+                            <div class="table-filters">
+                                <button class="filter-btn active">All tasks</button>
+                                <button class="filter-btn">Done</button>
+                                <button class="filter-btn">Due tasks</button>
+                            </div>
+                            <div class="table-actions">
+                                <button class="action-btn"><i data-lucide="filter"></i> Filter</button>
+                                <button class="action-btn"><i data-lucide="arrow-up-down"></i> Sort</button>
+                            </div>
+                        </div>
+                        <div class="table-content">
+                            <div class="table-row table-head">
+                                <div class="col-name">Tasks Name</div>
+                                <div class="col-status">Status</div>
+                                <div class="col-assignee">Assignee</div>
+                                <div class="col-due">Due Date</div>
+                                <div class="col-more"></div>
+                            </div>
+                            <!-- Mock Data Rows -->
+                            <div class="table-row">
+                                <div class="col-name">Redesign analytics dashboard</div>
+                                <div class="col-status"><span class="badge badge-purple">In Progress</span></div>
+                                <div class="col-assignee">Anna K. +1</div>
+                                <div class="col-due">11/01/2026</div>
+                                <div class="col-more"><i data-lucide="more-vertical"></i></div>
+                            </div>
+                            <div class="table-row">
+                                <div class="col-name">Prepare onboarding flow</div>
+                                <div class="col-status"><span class="badge badge-green">Done</span></div>
+                                <div class="col-assignee">Benjamin S.</div>
+                                <div class="col-due">06/01/2026</div>
+                                <div class="col-more"><i data-lucide="more-vertical"></i></div>
+                            </div>
+                            <div class="table-row">
+                                <div class="col-name">Update design system components</div>
+                                <div class="col-status"><span class="badge badge-green">Done</span></div>
+                                <div class="col-assignee">Sofia W.</div>
+                                <div class="col-due">08/01/2026</div>
+                                <div class="col-more"><i data-lucide="more-vertical"></i></div>
+                            </div>
+                            <div class="table-row">
+                                <div class="col-name">Review user feedback & insights</div>
+                                <div class="col-status"><span class="badge badge-orange">Pending</span></div>
+                                <div class="col-assignee">Mark M. +2</div>
+                                <div class="col-due">22/01/2026</div>
+                                <div class="col-more"><i data-lucide="more-vertical"></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Schedule Panel -->
+                    <div class="schedule-card">
+                        <h3>Today's schedule</h3>
+                        <p class="schedule-date">Monday, 24 January</p>
+                        
+                        <div class="schedule-filters">
+                            <span>All <span class="dot yellow"></span></span>
+                            <span>Open <span class="dot gray"></span></span>
+                            <span>Closed <span class="dot green"></span></span>
+                        </div>
+
+                        <div class="schedule-list">
+                            <div class="schedule-item completed">
+                                <div class="schedule-info">
+                                    <h4>Client feedback</h4>
+                                    <p>Marketing sync</p>
+                                    <span class="time">Today: 10am</span>
+                                </div>
+                                <div class="schedule-check"><i data-lucide="check"></i></div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-info">
+                                    <h4>Design review</h4>
+                                    <span class="time">Today: 2pm</span>
+                                </div>
+                                <div class="schedule-check empty"></div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-info">
+                                    <h4>Send brief to copywriter</h4>
+                                    <span class="time">Today: 4pm</span>
+                                </div>
+                                <div class="schedule-check empty"></div>
+                            </div>
+                        </div>
+                        
+                        <a href="#" class="view-all">Planned for tomorrow <i data-lucide="chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
